@@ -1,0 +1,121 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('../font/Raleway-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway-Bold';
+  src: url('../font/Raleway-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway-ExtraBold';
+  src: url('../font/Raleway-ExtraBold.ttf');
+}
+
+@font-face {
+  font-family: 'Raleway-Medium';
+  src: url('../font/Raleway-Medium.ttf');
+}
+
+body, html {
+  max-width: 1600px;
+  min-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Raleway';
+}
+
+.row {
+  max-width: 1600px;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+header .container-header-menu {
+  position: relative;
+  z-index: 10;
+}
+
+header .container-header-menu img {
+  width: 80%;
+}
+
+header .menu-lista {
+  display: flex;
+  align-items: center;
+}
+
+header .menu-lista > span {
+  vertical-align: middle;
+  margin: 0 20px;
+}
+
+header .menu-lista > span > a {
+  color: #fff;
+  font-family: 'Raleway';
+  transition-property: color;
+  transition-duration: 0.2s;
+}
+
+header .menu-lista > span > a:hover {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+header .owl-carousel {
+  margin-top: -110px;
+}
+
+header .owl-coursel img {
+  width: 100%;
+  height: auto;
+  
+}
+
+.footer-background {
+  background-image: url('../img/background-footer.png');
+  background-size: cover;
+  padding: 80px 30px;
+  max-width: 1600px;
+  margin: auto;
+}
+
+.footer-background .menu > h1 {
+  color: rgb(197,154,215);
+  font-family: 'Raleway-Medium';
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.footer-background .menu .menu-footer-item {
+  color: #fff;
+  font-family: 'Raleway-Medium';
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.footer-copyright {
+  font-family: 'Raleway-Medium';
+  font-size: 16px;
+  color: rgb(152,147,154);
+  background-color: rgb(28,6,33);
+  max-width: 1600px;
+  margin: auto;
+  padding: 10px;
+}
+
+.container, .footer-container {
+  max-width: 1600px;
+  margin: auto;
+  padding-right: 0;
+  padding-left: 0;
+}
