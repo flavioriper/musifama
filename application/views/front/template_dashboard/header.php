@@ -16,8 +16,8 @@
     <?php $this->load->view($localPath.'style') ?>
   </head>
   <body>
-    <header>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" id="navbar">
+    <header class="header-dashboard">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
         <a class="navbar-brand" href="#"><img src="<?=base_url('assets/img/musifama-logo.png')?>" alt="MUSIFAMA LOGO"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -39,13 +39,5 @@
           </ul>
         </div>
       </nav>
-      <div class="row">
-        <div class="col-12">
-          <div class="owl-carousel">
-            <div><img src="<?=base_url('assets/img/banner-new-1.png')?>" alt="Banner 1"></div>
-            <div><img src="<?=base_url('assets/img/banner-new-2.png')?>" alt="Banner 2"></div>
-          </div>
-        </div>
-      </div>
     </header>
     <div class="container">

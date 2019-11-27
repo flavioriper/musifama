@@ -1,4 +1,4 @@
-<div class="row container-background">
+<div class="row container-background" id="ancor">
   <div class="col-12 my-5">
     <h1 class="sobre-header text-center mb-5">Sobre o Evento</h1>
     <div class="sobre-texto text-justify">
@@ -9,7 +9,7 @@
   <div class="col-12 text-center">
     <h1 class="avaliadores-header">Saiba Mais sobre os Avaliadores</h1>
   </div>
-  <div class="col-3 text-center">
+  <div class="col-sm-3 col-12 text-center">
     <div class="jurado-card">
       <div class="jurado-foto">
         <img src="<?=base_url('assets/img/Thomas-pic.png')?>" alt="">
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <div class="col-3 text-center">
+  <div class="col-sm-3 col-12 text-center">
     <div class="jurado-card">
       <div class="jurado-foto">
         <img src="<?=base_url('assets/img/Lucimara-pic.png')?>" alt="">
@@ -31,7 +31,7 @@
       </div>
     </div>
   </div>
-  <div class="col-3 text-center">
+  <div class="col-sm-3 col-12 text-center">
     <div class="jurado-card">
       <div class="jurado-foto">
         <img src="<?=base_url('assets/img/Arnaldo-pic.png')?>" alt="">
@@ -42,7 +42,7 @@
       </div>
     </div>
   </div>
-  <div class="col-3 text-center">
+  <div class="col-sm-3 col-12 text-center">
     <div class="jurado-card">
       <div class="jurado-foto">
         <img src="<?=base_url('assets/img/Laercio-pic.png')?>" alt="">
@@ -56,7 +56,7 @@
 </div>
 
 <div class="row py-5 mb-4">
-  <div class="col-3 text-center">
+  <div class="col-sm-3 col-12 text-center">
     <div class="etapa-card">
       <div class="etapa-foto">
         <img src="<?=base_url('assets/img/etapa-1.png')?>" alt="Etapa 01">
@@ -66,7 +66,7 @@
       </div>
     </div>
   </div>
-  <div class="col-3 text-center">
+  <div class="col-sm-3 col-12 text-center">
     <div class="etapa-card">
       <div class="etapa-foto">
         <img src="<?=base_url('assets/img/etapa-2.png')?>" alt="Etapa 02">
@@ -76,7 +76,7 @@
       </div>
     </div>
   </div>
-  <div class="col-3 text-center">
+  <div class="col-sm-3 col-12 text-center">
     <div class="etapa-card">
       <div class="etapa-foto">
         <img src="<?=base_url('assets/img/etapa-3.png')?>" alt="Etapa 03">
@@ -86,7 +86,7 @@
       </div>
     </div>
   </div>
-  <div class="col-3 text-center">
+  <div class="col-sm-3 col-12 text-center">
     <div class="etapa-card">
       <div class="etapa-foto">
         <img src="<?=base_url('assets/img/etapa-4.png')?>" alt="Etapa 04">
@@ -96,5 +96,10 @@
           <strong>GRANDE FINAL</strong> – Os 15 (quinze) finalistas participarão da Grande Final em São Paulo – Serão premiados os participantes que ficarem em 1o, 2o e 3o lugares.
       </div>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 text-center condicao-especial">
+    FAÇA AGORA A SUA INSCRIÇÃO COM UMA CONDIÇÃO ESPECIAL!
   </div>
 </div>

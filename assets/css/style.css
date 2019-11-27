@@ -18,6 +18,11 @@
   src: url('../font/Raleway-Medium.ttf');
 }
 
+@font-face {
+  font-family: 'Gilroy-Regular';
+  src: url('../font/Gilroy-Light.otf');
+}
+
 body, html {
   max-width: 1600px;
   min-width: 1200px;
@@ -38,6 +43,68 @@ body, html {
 .col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12 {
   padding-left: 0;
   padding-right: 0;
+}
+
+.navbar {
+  background-color: transparent!important;
+}
+
+.fixed-top {
+  position: absolute!important;
+}
+
+.nav-link {
+  color: #fff!important;
+  transition-property: color;
+  transition-duration: 0.2s;
+}
+
+.hide {
+  display: none;
+}
+
+.header-dashboard {
+  background-image: url('../img/background-footer.png');
+  background-size: cover;
+  max-width: 1600px;
+  margin: auto;
+}
+
+@media only screen and (max-width: 450px) {
+  body, html {
+    min-width: 200px;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Raleway';
+  }
+
+  .navbar-brand {
+    width: 70%!important;
+  }
+
+  .navbar-brand img {
+    width: 100%;
+  }
+
+  .jurado-card {
+    margin: 20px auto!important;
+  }
+
+  .etapa-card {
+    margin: 20px auto!important;
+  }
+
+  .footer-background img {
+    width: 100%;
+    padding: 40px 0;
+  }
+
+  
+}
+
+.nav-link:hover {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5)!important;
 }
 
 header .container-header-menu {
@@ -71,14 +138,29 @@ header .menu-lista > span > a:hover {
   color: rgba(255, 255, 255, 0.5);
 }
 
-header .owl-carousel {
-  margin-top: -110px;
-}
-
 header .owl-coursel img {
   width: 100%;
   height: auto;
   
+}
+
+nav {
+  background: #f5b335;
+  height: 60x;
+  position: fixed;
+  top: 0;
+  transition: top 0.2s ease-in-out;
+  width: 100%;
+}
+
+.nav-up {
+  top: -113px;
+}
+
+.jumbotron{
+height: 200px;
+width:100%;
+border: solid ;
 }
 
 .footer-background {
@@ -118,4 +200,147 @@ header .owl-coursel img {
   margin: auto;
   padding-right: 0;
   padding-left: 0;
+}
+
+.menu-footer-item a {
+  color: inherit;
+  transition-property: color;
+  transition-duration: 0.2s;
+}
+
+.menu-footer-item a:hover {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.custom-player {
+  display: flex;
+}
+
+.custom-player >  .button {
+  background-color: rgb(191,200,201);
+  padding: 10px 20px;
+}
+
+.active-player > .button{
+  cursor: pointer;
+}
+
+.custom-player > .button > .fa-play,
+.custom-player > .button > .fa-pause {
+  color: #fff;
+}
+
+.custom-player > .streaming {
+  background-color: rgb(214,223,225);
+  flex-grow: 100;
+  display: flex;
+  align-items: center;
+}
+
+.custom-player > .streaming > .streaming-container {
+  width: 100%;
+}
+
+/* LIMPANDO O VISUAL PADRÃO DO SLIDER DO REPRODUTOR */
+
+.streaming-container {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+.streaming-container::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.streaming-container:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.streaming-container::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+/* VISUAL DA BARRA */
+
+/* Special styling for WebKit/Blink */
+.streaming-container::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 44px;
+  width: 16px;
+  background: rgb(191,200,201);
+  cursor: pointer;
+  margin-top: 0px!important; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+.streaming-container::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  height: 44px;
+  width: 16px;
+  background: rgb(191,200,201);
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+.streaming-container::-ms-thumb {
+  height: 44px;
+  width: 16px;
+  background: rgb(191,200,201);
+  cursor: pointer;
+}
+
+/* VISUAL DO BACKGROUND */
+
+.streaming-container::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 44px;
+  cursor: pointer;
+  background: rgb(214,223,225);
+}
+
+.streaming-container:focus::-webkit-slider-runnable-track {
+  background: rgb(214,223,225);
+}
+
+.streaming-container::-moz-range-track {
+  width: 100%;
+  height: 44px;
+  cursor: pointer;
+  background: rgb(214,223,225);
+}
+
+.streaming-container::-ms-track {
+  width: 100%;
+  height: 44px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+.streaming-container::-ms-fill-lower {
+  background: rgb(214,223,225);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+.streaming-container:focus::-ms-fill-lower {
+  background: rgb(214,223,225);
+}
+.streaming-container::-ms-fill-upper {
+  background: rgb(214,223,225);
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+.streaming-container:focus::-ms-fill-upper {
+  background: rgb(214,223,225);
 }

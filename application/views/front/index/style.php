@@ -48,4 +48,13 @@
       padding: 0px 35px;
     }
 
+    .condicao-especial {
+      font-family: 'Raleway-Medium';
+      background-color: rgb(233,0,163);
+      color: rgb(36,8,44);
+      font-weight: bolder;
+      font-size: 42px;
+      padding: 20px 0;
+    }
+
 </style>
