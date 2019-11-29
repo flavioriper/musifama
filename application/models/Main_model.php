@@ -20,6 +20,14 @@ class Main_model extends CI_model {
     return $this->db->insert('candidatos_login', $login);
   }
 
+  public function cadastrarContato($contato) {
+    return $this->db->insert('contatos', $contato);
+  }
+
+  public function cadastrarVoto($voto) {
+    return $this->db->insert('candidato_voto', $voto);
+  }
+
   public function cadastrarImagem($imagem) {
     $this->db->where('candidato_id', $imagem['candidato_id']);
     $imagensResult = $this->db->get('candidato_imagem')->result();
@@ -74,6 +82,33 @@ class Main_model extends CI_model {
     return $this->db->get('candidatos c')->row();
   }
 
+  public function getCandidatoPublic($id) {
+    $this->db->where('c.id', $id);
+    $this->db->join('candidato_imagem ci', 'ci.id = c.imagem_id', 'left');
+    $this->db->join('candidato_musica cm', 'cm.id = c.musica_id', 'left');
+    $this->db->select('c.*, ci.nome_enc as imagem_enc_nome, cm.nome_original as musica_nome, cm.nome_enc as musica_enc_nome');
+    $candidato = $this->db->get('candidatos c')->row();
+    if ($candidato) {
+      $candidato->votos = $this->getCandidatoVotos($candidato->id);
+    }
+    return $candidato;
+  }
+
+  public function getCandidatos($page, $perPage = 4, $busca = null) {
+    $this->db->join('candidato_imagem ci', 'ci.id = c.imagem_id', 'left');
+    $this->db->select('c.*, ci.nome_enc as imagem_enc_nome');
+    $this->db->limit($perPage,($page == 1)?0:$page);
+    if ($busca != null) {
+      $this->db->like('candidato_nome_artistico', $busca);
+    }
+    $candidatos = $this->db->get('candidatos c')->result();
+    for($i = 0; $i < count($candidatos); $i++) {
+      $candidatos[$i]->votos = $this->getCandidatoVotos($candidatos[$i]->id);
+    }
+    $candidatos['pagination'] = $this->getPaginationCandidatos($perPage, $busca);
+    return $candidatos;
+  }
+
   /**
    * UPDATE
    */
@@ -113,6 +148,24 @@ class Main_model extends CI_model {
     date_default_timezone_set('America/Sao_Paulo');
     $usuario['data_login'] = date('Y-m-d H:i:s');
     return $this->cadastrarLogin($usuario);
+  }
+
+  private function getPaginationCandidatos($perPage, $busca) {
+    if ($busca != null) {
+      $this->db->like('candidato_nome_artistico', $busca);
+    }
+    $candidatos = $this->db->count_all_results('candidatos');
+    $totalPages = ceil($candidatos / $perPage);
+    return array(
+      'perPage' => 4,
+      'totalPages' => $totalPages,
+      'totalResults' => $candidatos
+    );
+  }
+
+  private function getCandidatoVotos($candidato) {
+    $this->db->where('candidato_id', $candidato);
+    return $this->db->count_all_results('candidato_voto');
   }
 
 }

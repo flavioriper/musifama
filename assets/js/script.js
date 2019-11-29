@@ -53,5 +53,26 @@ function musicPlayer(song) {
 		slider.attr("value", curtime);
 		slider.prop("value", curtime);
 		box.val(curtime)
-	})
+  })
 }
+
+$(document).ready(function() {
+  $(".candidato-botao-votar").click(function() {
+    let id = parseInt($(this).attr('candidato-id'));
+    let url = $(this).attr('url');
+    let votos = parseInt($(`#candidato-votos-${id}`).text());
+    $.ajax({
+      url: url,
+      type: 'POST',
+      data: { "candidato":id },
+      success: function(data) {
+        if (data == '200') {
+          $(`#candidato-votos-${id}`).text(votos + 1);
+          $('#modalConfirmacaoVoto').modal();
+        } else {
+          alert('erro!');
+        }
+      }
+    })
+  })
+})

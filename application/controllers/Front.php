@@ -24,6 +24,40 @@ class Front extends CI_Controller {
 		$this->load->view('front/template/footer');
   }
 
+  public function regulamento() {
+    $data['localPath'] = 'front/regulamento/';
+
+    $this->load->view('front/template_dashboard/header', $data);
+		$this->load->view($data['localPath'].'html');
+		$this->load->view('front/template_dashboard/footer');
+  }
+
+  public function contato() {
+    $data['localPath'] = 'front/contato/';
+
+    $this->load->view('front/template_dashboard/header', $data);
+		$this->load->view($data['localPath'].'html');
+		$this->load->view('front/template_dashboard/footer');
+  }
+
+  public function enviar_contato() {
+    if ($this->input->post('contato')) {
+      $contato = json_decode($this->input->post('contato'));
+      $contatoDto = array(
+        'nome' => $contato->nome,
+        'email' => $contato->email,
+        'assunto' => $contato->assunto,
+        'mensagem' => $contato->mensagem,
+        'data_envio' => date('Y-m-d H:i:s')
+      );
+      if ($this->main_model->cadastrarContato($contatoDto)) {
+        echo '200';
+      } else {
+        echo '500';
+      }
+    }
+  }
+
   public function inscrever() {
     date_default_timezone_set('America/Sao_Paulo');
 
@@ -35,8 +69,6 @@ class Front extends CI_Controller {
         'candidato_email' => $candidato->candidato_email,
         'candidato_telefone' => $candidato->candidato_telefone,
         'candidato_idade' => $candidato->candidato_idade,
-        'candidato_categoria' => $candidato->candidato_categoria,
-        'candidato_estilo_musical' => $candidato->candidato_estilo_musical,
         'candidato_cidade' => $candidato->candidato_cidade,
         'candidato_estado' => $candidato->candidato_estado,
         'candidato_cep' => $candidato->candidato_cep,

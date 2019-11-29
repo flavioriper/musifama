@@ -28,8 +28,6 @@
       inscricao.candidato_email = $('#candidato-email').val();
       inscricao.candidato_telefone = $('#candidato-telefone').cleanVal();
       inscricao.candidato_idade = $('#candidato-idade').val();
-      inscricao.candidato_categoria = $('#candidato-categoria').val();
-      inscricao.candidato_estilo_musical = $('#candidato-estilo-musical').val();
       inscricao.candidato_cidade = $('#candidato-cidade').val();
       inscricao.candidato_estado = $('#candidato-estado').val();
       inscricao.candidato_cep = $('#candidato-cep').cleanVal();

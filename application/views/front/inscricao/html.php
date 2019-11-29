@@ -31,14 +31,6 @@
         <input class="form-control" type="number" id="candidato-idade" placeholder="Idade..." required>
       </div>
       <div class="col-sm-6 col-12 px-2 my-3">
-        <label for="candidato-categoria">Categoria</label>
-        <select class="form-control" id="candidato-categoria"></select>
-      </div>
-      <div class="col-sm-6 col-12 px-2 my-3">
-        <label for="candidato-estilo-musical">Estilo Musical</label>
-        <select class="form-control" id="candidato-estilo-musical"></select>
-      </div>
-      <div class="col-sm-6 col-12 px-2 my-3">
         <label for="candidato-cidade">Cidade</label>
         <input class="form-control" type="text" id="candidato-cidade">
       </div>

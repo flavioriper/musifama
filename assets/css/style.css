@@ -344,3 +344,30 @@ border: solid ;
 .streaming-container:focus::-ms-fill-upper {
   background: rgb(214,223,225);
 }
+
+.pagination-link strong,
+.pagination-link a {
+  font-family: 'Raleway-Medium';
+  padding: 5px 10px;
+  margin: 0 3px;
+  font-size: 22px;
+}
+
+.pagination-link strong {
+  font-family: 'Raleway-Bold';
+  background-color: rgb(96,32,115, 0.4);
+}
+
+.pagination-link a {
+  background-color: rgb(96,32,115);
+  color: #fff;
+}
+
+.pagination-link a:hover {
+  text-decoration: none;
+}
+
+.pagination-link .pagination-first,
+.pagination-link .pagination-last {
+  padding: 0 5px;
+}

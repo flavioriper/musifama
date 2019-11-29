@@ -8,7 +8,7 @@ class Candidato extends CI_Controller {
     $this->load->model('main_model');
     }
 
-	public function index() {
+	public function gerenciar() {
     $data['localPath'] = 'front/candidato/gerenciar/';
 
     if (!$this->checarLogin()) {
@@ -32,6 +32,60 @@ class Candidato extends CI_Controller {
 		$this->load->view('front/template_dashboard/header', $data);
 		$this->load->view($data['localPath'].'html');
 		$this->load->view('front/template_dashboard/footer');
+  }
+
+  public function ver($id) {
+    $data['localPath'] = 'front/candidato/ver/';
+
+    $data['candidato'] = $this->main_model->getCandidatoPublic($id);;
+
+		$this->load->view('front/template_dashboard/header', $data);
+		$this->load->view($data['localPath'].'html');
+		$this->load->view('front/template_dashboard/footer');
+  }
+
+  public function buscar($buscaRaw, $page = 1) {
+    $data['localPath'] = 'front/candidato/buscar/';
+    $busca = urldecode($buscaRaw);
+    
+    $data['candidatos'] = $this->main_model->getCandidatos($page, 4, $busca);
+    $data['currentPage'] = $page;
+    $data['buscaAtual'] = $busca;
+    $this->load->library('pagination');
+    $config['base_url'] = base_url('candidatos/buscar/'.$buscaRaw);
+    $config['total_rows'] = $data['candidatos']['pagination']['totalResults'];
+    $config['per_page'] = 4;
+
+    $this->pagination->initialize($config);
+    
+		$this->load->view('front/template_dashboard/header', $data);
+		$this->load->view($data['localPath'].'html');
+		$this->load->view('front/template_dashboard/footer');
+  }
+
+  public function listar($page = 1) {
+    $data['localPath'] = 'front/candidato/listar/';
+
+    
+    $data['candidatos'] = $this->main_model->getCandidatos($page);
+    $data['currentPage'] = $page;
+
+    $this->load->library('pagination');
+    $config['base_url'] = base_url('candidatos');
+    $config['total_rows'] = $data['candidatos']['pagination']['totalResults'];
+    $config['per_page'] = 4;
+
+    $this->pagination->initialize($config);
+    
+		$this->load->view('front/template_dashboard/header', $data);
+		$this->load->view($data['localPath'].'html');
+		$this->load->view('front/template_dashboard/footer');
+  }
+
+  public function votar() {
+    if ($this->input->post('candidato')) {
+      echo '200';
+    }
   }
 
   private function checarLogin() {
@@ -101,7 +155,7 @@ class Candidato extends CI_Controller {
     }
 
     $config['upload_path'] = 'assets/candidato_imagem/';
-    $config['allowed_types'] = 'png|jpeg|jpg';
+    $config['allowed_types'] = '*';
     $config['encrypt_name'] = TRUE;
     $this->load->library('upload');
     $this->upload->initialize($config);
@@ -122,10 +176,15 @@ class Candidato extends CI_Controller {
       if ($imagem) {
         $this->main_model->updateCandidato($usuario['candidato_id'], array('imagem_id' => $imagem));
         $this->session->set_flashdata('mensagemImagem', 'Imagem enviada com sucesso');
+        echo '200';
       } else {
         $this->session->set_flashdata('mensagemImagem', 'Aconteceu um erro no envio da imagem');
+        echo '500';
       }
-      redirecionar('candidato#imagem');
+    } else
+    {
+      $error = array('error' => $this->upload->display_errors());
+      var_dump($error);
     }
   }
 

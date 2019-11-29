@@ -12,13 +12,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css?v=1" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="<?=base_url().'assets/css/owl.carousel.min.css?v=1'?>"/>
     <link rel="stylesheet" type="text/css" href="<?=base_url().'assets/css/owl.theme.default.min.css?v=1'?>"/>
+    <link rel="stylesheet" type="text/css" href="<?=base_url().'assets/css/croppie.css?v=1'?>"/>
     <link rel="stylesheet" type="text/css" href="<?=base_url().'assets/css/style.css?v=1'?>"/>
     <?php $this->load->view($localPath.'style') ?>
   </head>
   <body>
     <header class="header-dashboard">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar">
-        <a class="navbar-brand" href="#"><img src="<?=base_url('assets/img/musifama-logo.png')?>" alt="MUSIFAMA LOGO"></a>
+        <a class="navbar-brand" href="<?=base_url()?>"><img src="<?=base_url('assets/img/musifama-logo.png')?>" alt="MUSIFAMA LOGO"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,6 +36,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?=base_url('candidato')?>">ÁREA DO CANDIDATO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<?=base_url('candidatos')?>">CANDIDATOS</a>
             </li>
           </ul>
         </div>

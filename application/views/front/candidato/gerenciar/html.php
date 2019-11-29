@@ -17,7 +17,7 @@
         <?php endif?>
       </div>
       <div class="col-12" id="imagem">
-        <form action="<?=base_url('candidato/upload_imagem')?>" method="POST" enctype="multipart/form-data">
+        <form action="<?=base_url('candidato/upload_imagem')?>" method="POST" id="image-form" enctype="multipart/form-data">
           <div class="input-group">
             <div class="custom-file">
               <input type="file" class="custom-file-input" name="candidato-imagem" id="candidato-imagem" accept="image/jpeg, image/png">
@@ -130,6 +130,20 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalCrop" tabindex="-1" role="dialog" aria-labelledby="modalCropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="upload-demo"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="salvar-imagem-perfil" class="btn btn-primary">Salvar</button>
       </div>
     </div>
   </div>
